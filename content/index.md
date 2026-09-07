@@ -18,6 +18,10 @@ description: Cheyan 的技术、工具与家庭服务知识库目录。
 - [[services/paperless|Paperless-ngx 文档管理服务]]
 - [[services/webmail|NAS 邮件客户端 Snappymail 部署与多邮箱配置]]
 
+## 工具
+
+- [[tools/git-hooks自动生成文档目录|用 Git Hook 自动生成 Markdown 文档目录]]：通过 pre-commit 在提交前扫描文章、更新首页目录，并理解 Git 暂存区、提交钩子与 CI 兜底之间的关系。
+
 ## 项目
 
 - [[projects/index|个人项目]]：正在构思、验证或持续开发的个人项目。

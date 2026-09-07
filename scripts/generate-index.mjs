@@ -11,6 +11,7 @@ const sectionNames = {
   "hermes-agent": "Hermes Agent",
   projects: "项目",
   services: "服务",
+  tools: "工具",
 }
 
 function readFrontmatter(filePath) {
