@@ -42,6 +42,10 @@ description: Cheyan 的技术、工具与家庭服务知识库，记录可复用
     <span class="card-index">06 / ARCHIVE</span>
     <span><strong>备用项目</strong><span class="card-description">已配置但当前未启用的 OpenCode2API。</span></span>
   </a>
+  <a class="directory-card" href="/hermes-agent/">
+    <span class="card-index">07 / TOOLS</span>
+    <span><strong>Hermes Agent</strong><span class="card-description">使用指南、协作约定与公开知识库隐私边界。</span></span>
+  </a>
 </div>
 
 <p class="site-note"><strong>使用方式：</strong>文章源文件保存在 GitHub 仓库中，推送到 <code>main</code> 后自动发布。网站不承载本地服务，只负责把这些记录整理成便于阅读的页面。</p>
