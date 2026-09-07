@@ -68,6 +68,8 @@ Media3 / ExoPlayer / MediaSession
 
 这条分支应作为需求、流程和已有实现的参考，而不是新版本必须继续沿用的技术底座。
 
+关于现成 SMB/NAS 同步项目的进一步比较，见 [[projects/miyako-sync-research|Android NAS 同步底座调研]]。
+
 ## 新版目标
 
 新版 Miyako 的目标不是“从零实现音乐播放器”，而是：

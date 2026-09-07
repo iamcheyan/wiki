@@ -14,6 +14,7 @@ tags:
 ## 项目目录
 
 - [[projects/miyako|Miyako：原生 Android NAS 音乐播放器]]
+- [[projects/miyako-sync-research|Miyako：Android NAS 同步底座调研]]
 
 ## 项目笔记约定
 

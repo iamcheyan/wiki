@@ -50,6 +50,10 @@ description: Cheyan 的技术、工具与家庭服务知识库，记录可复用
     <span class="card-index">08 / PROJECTS</span>
     <span><strong>Miyako</strong><span class="card-description">原生 Android NAS 音乐播放器项目构想。</span></span>
   </a>
+  <a class="directory-card" href="/projects/miyako-sync-research">
+    <span class="card-index">09 / RESEARCH</span>
+    <span><strong>同步底座调研</strong><span class="card-description">SambaLite、Android Mirror、OpenSync 等方案比较。</span></span>
+  </a>
 </div>
 
 <p class="site-note"><strong>使用方式：</strong>文章源文件保存在 GitHub 仓库中，推送到 <code>main</code> 后自动发布。网站不承载本地服务，只负责把这些记录整理成便于阅读的页面。</p>
