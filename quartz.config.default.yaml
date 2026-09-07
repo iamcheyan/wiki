@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Cheyan 知识库
-  pageTitleSuffix: " · Cheyan 知识库"
+  pageTitle: Cheyan Wiki
+  pageTitleSuffix: " · Cheyan Wiki"
   enableSPA: true
   enablePopovers: true
   analytics:
     provider: plausible
-  locale: zh-CN
+  locale: en-US
   baseUrl: wiki.iamcheyan.com
   ignorePatterns:
     - private
@@ -204,7 +204,7 @@ plugins:
     options:
       links:
         GitHub: https://github.com/iamcheyan/wiki
-        返回首页: /
+        Home: /
     layout:
       position: footer
       priority: 50
