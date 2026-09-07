@@ -45,6 +45,7 @@ git push origin main
 ## 目录说明
 
 - `content/`：知识库文章，日常主要编辑这里
+- `content/projects/`：个人项目构想、技术路线和开发记录
 - `quartz/`：Quartz 站点生成器源码
 - `quartz.config.default.yaml`：Quartz 默认配置参考
 - `.github/workflows/deploy.yml`：推送到 `main` 后自动部署到 GitHub Pages 的配置
