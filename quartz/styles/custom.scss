@@ -1,3 +1,150 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// Cheyan 知识库的视觉层：克制、清晰，重点突出目录和正文。
+
+:root {
+  --brand-gradient: linear-gradient(135deg, #245b8a 0%, #0f8b8d 100%);
+  --card-shadow: 0 14px 35px rgba(25, 65, 94, 0.08);
+}
+
+.site-hero {
+  position: relative;
+  overflow: hidden;
+  margin: 1.5rem 0 2.5rem;
+  padding: 2.25rem 2.5rem;
+  border: 1px solid color-mix(in srgb, var(--secondary) 16%, transparent);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--tertiary) 18%, transparent), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, var(--secondary) 8%, var(--light)), var(--light));
+  box-shadow: var(--card-shadow);
+}
+
+.site-hero::after {
+  position: absolute;
+  right: -4rem;
+  bottom: -5rem;
+  width: 13rem;
+  height: 13rem;
+  border: 1px solid color-mix(in srgb, var(--tertiary) 22%, transparent);
+  border-radius: 50%;
+  content: "";
+}
+
+.site-kicker {
+  margin: 0 0 0.8rem;
+  color: var(--tertiary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.site-hero h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 0.75rem;
+  color: var(--dark);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  letter-spacing: -0.04em;
+}
+
+.site-hero .site-lead {
+  position: relative;
+  z-index: 1;
+  max-width: 38rem;
+  margin: 0;
+  color: var(--darkgray);
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.directory-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.directory-heading h2 {
+  margin-bottom: 0.3rem;
+}
+
+.directory-heading p {
+  margin: 0;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2.5rem;
+}
+
+.directory-card {
+  display: flex;
+  min-height: 8.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, var(--light) 92%, var(--secondary));
+  box-shadow: 0 5px 18px rgba(25, 65, 94, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.directory-card:hover {
+  border-color: color-mix(in srgb, var(--secondary) 45%, var(--lightgray));
+  box-shadow: var(--card-shadow);
+  color: var(--dark);
+  transform: translateY(-3px);
+}
+
+.directory-card .card-index {
+  color: var(--tertiary);
+  font-family: var(--codeFont);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.directory-card strong {
+  display: block;
+  margin-top: 0.7rem;
+  color: var(--dark);
+  font-size: 1.08rem;
+}
+
+.directory-card .card-description {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--darkgray);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.site-note {
+  margin-top: 2rem;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--tertiary);
+  background: var(--highlight);
+}
+
+@media all and ($mobile) {
+  .site-hero {
+    margin-top: 1rem;
+    padding: 1.5rem;
+  }
+
+  .directory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .directory-heading {
+    display: block;
+  }
+}

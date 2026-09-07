@@ -93,3 +93,16 @@ tar -czvf ~/snappymail_backup_$(date +%Y%m%d).tar.gz -C ~/services/webmail data 
 ```bash
 cd ~/services/webmail && docker compose up -d
 ```
+
+### 4.3 当前运行状态
+
+当前容器名为 `snappymail`，宿主机端口为 `8089`，Compose 项目文件位于 `~/services/webmail/docker-compose.yml`：
+
+```bash
+docker compose -f ~/services/webmail/docker-compose.yml ps
+docker logs --tail 100 snappymail
+```
+
+SnappyMail 不依赖本机的 PostgreSQL 或 Redis；它通过 IMAP/SMTP 直接连接外部邮箱服务。邮件正文和邮箱服务器上的文件夹仍以邮箱服务商为准，本机主要保存 SnappyMail 的配置、用户设置和凭证关联信息。
+
+当前未发现自动备份任务。备份包含敏感配置，应保存到另一块磁盘或另一台机器，不要提交到 GitHub，也不要放进 Quartz 的 `content/` 目录。Docker 服务的整体备份策略见 [[services/docker-backups|Docker 服务备份与恢复手册]]。
