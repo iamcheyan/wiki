@@ -1,59 +1,33 @@
 ---
 title: Cheyan 知识库
-date: 2026-09-07
-description: Cheyan 的技术、工具与家庭服务知识库，记录可复用的配置、经验与运维手册。
+description: Cheyan 的技术、工具与家庭服务知识库目录。
 ---
 
-<section class="site-hero">
-  <p class="site-kicker">CHEYAN KNOWLEDGE BASE</p>
-  <h2>记录、整理，再发现。</h2>
-  <p class="site-lead">这里收录技术实践、家庭服务、工具配置与日常运维。每一篇记录都尽量保留背景、路径、端口和恢复方法，方便以后查找，也方便重新搭建。</p>
-</section>
+# Cheyan 知识库
 
-<div class="directory-heading">
-  <div>
-    <h2>知识目录</h2>
-    <p>从一个入口，找到正在使用的服务和操作手册。</p>
-  </div>
-</div>
+这里记录技术实践、家庭服务、工具配置与日常运维。选择下面的文章开始阅读。
 
-<div class="directory-grid">
-  <a class="directory-card" href="/services/docker-overview">
-    <span class="card-index">01 / SYSTEM</span>
-    <span><strong>家庭服务总览</strong><span class="card-description">Docker 服务、端口、数据目录与依赖关系。</span></span>
-  </a>
-  <a class="directory-card" href="/services/docker-backups">
-    <span class="card-index">02 / OPERATIONS</span>
-    <span><strong>备份与恢复</strong><span class="card-description">数据库、媒体文件、配置和故障恢复手册。</span></span>
-  </a>
-  <a class="directory-card" href="/services/webmail">
-    <span class="card-index">03 / SERVICES</span>
-    <span><strong>Webmail</strong><span class="card-description">SnappyMail 多邮箱访问与配置记录。</span></span>
-  </a>
-  <a class="directory-card" href="/services/paperless">
-    <span class="card-index">04 / SERVICES</span>
-    <span><strong>Paperless-ngx</strong><span class="card-description">文档归档、OCR、数据目录与备份说明。</span></span>
-  </a>
-  <a class="directory-card" href="/services/immich">
-    <span class="card-index">05 / SERVICES</span>
-    <span><strong>Immich</strong><span class="card-description">照片管理、媒体路径和数据库维护。</span></span>
-  </a>
-  <a class="directory-card" href="/services/opencode2api">
-    <span class="card-index">06 / ARCHIVE</span>
-    <span><strong>备用项目</strong><span class="card-description">已配置但当前未启用的 OpenCode2API。</span></span>
-  </a>
-  <a class="directory-card" href="/hermes-agent/">
-    <span class="card-index">07 / TOOLS</span>
-    <span><strong>Hermes Agent</strong><span class="card-description">使用指南、协作约定与公开知识库隐私边界。</span></span>
-  </a>
-  <a class="directory-card" href="/projects/miyako">
-    <span class="card-index">08 / PROJECTS</span>
-    <span><strong>Miyako</strong><span class="card-description">原生 Android NAS 音乐播放器项目构想。</span></span>
-  </a>
-  <a class="directory-card" href="/projects/miyako-sync-research">
-    <span class="card-index">09 / RESEARCH</span>
-    <span><strong>同步底座调研</strong><span class="card-description">SambaLite、Android Mirror、OpenSync 等方案比较。</span></span>
-  </a>
-</div>
+<!-- 目录由 scripts/generate-index.mjs 自动生成，请勿手动编辑此标记之后的内容。 -->
 
-<p class="site-note"><strong>使用方式：</strong>文章源文件保存在 GitHub 仓库中，推送到 <code>main</code> 后自动发布。网站不承载本地服务，只负责把这些记录整理成便于阅读的页面。</p>
+## 服务
+
+- [[services/docker-backups|Docker 服务备份与恢复手册]]
+- [[services/docker-overview|本机 Docker 服务总览]]
+- [[services/immich|Immich 相册服务]]
+- [[services/opencode2api|OpenCode2API（未运行）]]
+- [[services/paperless|Paperless-ngx 文档管理服务]]
+- [[services/webmail|NAS 邮件客户端 Snappymail 部署与多邮箱配置]]
+
+## 项目
+
+- [[projects/index|个人项目]]：正在构思、验证或持续开发的个人项目。
+- [[projects/miyako|Miyako：原生 Android NAS 音乐播放器]]：将 NAS 音乐同步到 Android 本地音乐库，并基于成熟原生播放器继续开发。
+- [[projects/miyako-sync-research|Miyako：Android NAS 同步底座调研]]：现成 Android SMB/NAS 同步项目的候选底座、技术路线和 Fork 评估。
+- [[projects/sambalite-nas-download|SambaLite：把 NAS 音乐下载到 Android 手机]]：在 FiiO JM21 上使用 SambaLite 连接 SMB 音乐共享，并把 NAS 文件递归下载到手机 Music 目录的完整操作记录。
+
+## Hermes Agent
+
+- [[hermes-agent/index|Hermes Agent]]：Hermes Agent 的公开使用说明、工作约定与隐私边界。
+- [[hermes-agent/使用指南|Hermes Agent 使用指南]]：Hermes Agent 的核心能力、常见任务方式和结果验收原则。
+- [[hermes-agent/工作约定|Hermes Agent 工作约定]]：Hermes Agent 与用户之间目前确认的公开协作规则与术语。
+- [[hermes-agent/隐私与公开知识库边界|Hermes Agent 隐私与公开知识库边界]]：面向公开网站的内容脱敏规则，以及 Hermes 记忆、技能和知识库的边界。

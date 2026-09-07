@@ -14,6 +14,15 @@ content/services/webmail.md
 
 编辑 Markdown 文件后，提交并推送到 GitHub 即可。
 
+首页 `content/index.md` 的文章目录由 `scripts/generate-index.mjs` 根据各文章的
+frontmatter 自动生成。仓库使用 `.githooks/pre-commit` 在提交前更新目录；首次使用本仓库时执行：
+
+```bash
+git config core.hooksPath .githooks
+```
+
+GitHub Actions 在构建前也会执行同一个生成器，确保没有安装本地 hook 时线上目录仍然保持最新。
+
 ## 服务文档
 
 本机 Docker 服务的详细说明放在 `content/services/` 中：
