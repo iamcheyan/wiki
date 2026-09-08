@@ -20,6 +20,7 @@ description: Cheyan 的技术、工具与家庭服务知识库目录。
 
 ## 工具
 
+- [[tools/音乐库整理与联网元数据匹配流程|音乐库整理与联网元数据匹配流程]]：从 SMB 音乐共享盘开始，安全整理目录、识别异常文件、补全标签并匹配专辑封面。
 - [[tools/git-hooks自动生成文档目录|用 Git Hook 自动生成 Markdown 文档目录]]：通过 pre-commit 在提交前扫描文章、更新首页目录，并理解 Git 暂存区、提交钩子与 CI 兜底之间的关系。
 
 ## 项目
@@ -31,7 +32,7 @@ description: Cheyan 的技术、工具与家庭服务知识库目录。
 
 ## Hermes Agent
 
-- [[hermes-agent/index|Hermes Agent]]：Hermes Agent 的公开使用说明、工作约定与隐私边界。
-- [[hermes-agent/使用指南|Hermes Agent 使用指南]]：Hermes Agent 的核心能力、常见任务方式和结果验收原则。
 - [[hermes-agent/工作约定|Hermes Agent 工作约定]]：Hermes Agent 与用户之间目前确认的公开协作规则与术语。
+- [[hermes-agent/使用指南|Hermes Agent 使用指南]]：Hermes Agent 的核心能力、常见任务方式和结果验收原则。
 - [[hermes-agent/隐私与公开知识库边界|Hermes Agent 隐私与公开知识库边界]]：面向公开网站的内容脱敏规则，以及 Hermes 记忆、技能和知识库的边界。
+- [[hermes-agent/index|Hermes Agent]]：Hermes Agent 的公开使用说明、工作约定与隐私边界。
