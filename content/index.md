@@ -17,6 +17,7 @@ description: Cheyan 的技术、工具与家庭服务知识库目录。
 - [[services/opencode2api|OpenCode2API（未运行）]]
 - [[services/paperless|Paperless-ngx 文档管理服务]]
 - [[services/webmail|NAS 邮件客户端 Snappymail 部署与多邮箱配置]]
+- [[services/xserver-domain-email-setup|日本 Xserver 域名申请与企业邮箱搭建指南]]：参考 Xserver 官方文档，从域名申请、绑定、邮箱账号创建到 IMAP/SMTP、SPF、DKIM、DMARC 和安全检查的完整流程。
 - [[services/xserver-japan-initial-architecture|日本 Xserver 初期架构：先把边界搭对，再考虑扩容]]：面向日本用户的 Xserver VPS 初期部署架构，包含入口层、应用层、数据层、备份、安全边界和后续演进路线。
 
 ## 工具
