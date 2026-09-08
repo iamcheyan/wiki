@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">聊天机器人与 AI Agent 对比</title>
+  <desc id="desc">左侧是问答式聊天，右侧是带工具和验收的 Agent 工作流。</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fafc"/><stop offset="1" stop-color="#e2e8f0"/></linearGradient><linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs>
+  <rect width="1200" height="620" rx="30" fill="url(#bg)"/>
+  <text x="70" y="74" fill="#0f172a" font-size="36" font-family="sans-serif" font-weight="700">从“问答”到“交付”</text>
+  <rect x="70" y="125" width="460" height="390" rx="24" fill="#fff" stroke="#cbd5e1" stroke-width="3"/>
+  <rect x="670" y="125" width="460" height="390" rx="24" fill="#0f172a"/>
+  <text x="110" y="180" fill="#334155" font-size="26" font-family="sans-serif" font-weight="700">聊天机器人</text>
+  <text x="710" y="180" fill="#f8fafc" font-size="26" font-family="sans-serif" font-weight="700">AI Agent</text>
+  <g font-family="sans-serif" font-size="21">
+    <text x="110" y="245" fill="#475569">你：帮我整理这份资料</text><text x="110" y="295" fill="#475569">AI：可以，建议分成三部分……</text><text x="110" y="370" fill="#94a3b8">结果：一段建议</text><text x="110" y="425" fill="#94a3b8">下一步：仍由你执行</text>
+    <text x="710" y="245" fill="#cbd5e1">目标：整理并发布</text><text x="710" y="295" fill="#67e8f9">1. 读取资料并提取要点</text><text x="710" y="340" fill="#a78bfa">2. 生成文章与配图</text><text x="710" y="385" fill="#5eead4">3. 检查链接、格式与隐私</text><text x="710" y="455" fill="#f8fafc" font-weight="700">交付：文件、测试结果、链接</text>
+  </g>
+  <path d="M560 320 H640" stroke="url(#blue)" stroke-width="8" stroke-linecap="round"/><path d="m625 300 25 20-25 20" fill="none" stroke="#7c3aed" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

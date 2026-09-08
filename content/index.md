@@ -17,6 +17,7 @@ description: Cheyan 的技术、工具与家庭服务知识库目录。
 - [[services/opencode2api|OpenCode2API（未运行）]]
 - [[services/paperless|Paperless-ngx 文档管理服务]]
 - [[services/webmail|NAS 邮件客户端 Snappymail 部署与多邮箱配置]]
+- [[services/xserver-japan-initial-architecture|日本 Xserver 初期架构：先把边界搭对，再考虑扩容]]：面向日本用户的 Xserver VPS 初期部署架构，包含入口层、应用层、数据层、备份、安全边界和后续演进路线。
 
 ## 工具
 
@@ -29,6 +30,10 @@ description: Cheyan 的技术、工具与家庭服务知识库目录。
 - [[projects/miyako|Miyako：原生 Android NAS 音乐播放器]]：将 NAS 音乐同步到 Android 本地音乐库，并基于成熟原生播放器继续开发。
 - [[projects/miyako-sync-research|Miyako：Android NAS 同步底座调研]]：现成 Android SMB/NAS 同步项目的候选底座、技术路线和 Fork 评估。
 - [[projects/sambalite-nas-download|SambaLite：把 NAS 音乐下载到 Android 手机]]：在 FiiO JM21 上使用 SambaLite 连接 SMB 音乐共享，并把 NAS 文件递归下载到手机 Music 目录的完整操作记录。
+
+## AI Agent
+
+- [[ai-agent/为什么值得订阅-ai-agent|为什么值得订阅 AI Agent：从聊天工具到真正的工作伙伴]]：AI Agent 和普通聊天机器人的区别、适合订阅的场景、成本判断，以及如何用一个小任务开始。
 
 ## Hermes Agent
 

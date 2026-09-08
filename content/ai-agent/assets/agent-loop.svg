@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">AI Agent 工作闭环</title>
+  <desc id="desc">从目标到计划、工具执行、结果验证和记忆沉淀的循环图。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#1e293b"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#67e8f9"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity=".25"/></filter>
+  </defs>
+  <rect width="1200" height="680" rx="30" fill="url(#bg)"/>
+  <text x="70" y="82" fill="#f8fafc" font-size="38" font-family="sans-serif" font-weight="700">AI Agent 的工作闭环</text>
+  <text x="70" y="122" fill="#94a3b8" font-size="21" font-family="sans-serif">把一次对话，变成可以执行、检查、复用的工作流</text>
+  <path d="M310 260 C430 120 700 120 850 260" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M890 330 C850 500 650 560 470 500" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M400 450 C270 410 240 330 310 260" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+  <g filter="url(#shadow)">
+    <circle cx="290" cy="250" r="100" fill="#172554" stroke="#67e8f9" stroke-width="3"/>
+    <circle cx="600" cy="175" r="100" fill="#312e81" stroke="#a78bfa" stroke-width="3"/>
+    <circle cx="890" cy="290" r="100" fill="#164e63" stroke="#67e8f9" stroke-width="3"/>
+    <circle cx="720" cy="500" r="100" fill="#3f1d5b" stroke="#c4b5fd" stroke-width="3"/>
+    <circle cx="370" cy="480" r="100" fill="#143b42" stroke="#5eead4" stroke-width="3"/>
+  </g>
+  <g fill="#f8fafc" font-family="sans-serif" text-anchor="middle">
+    <text x="290" y="242" font-size="28" font-weight="700">目标</text><text x="290" y="276" font-size="18" fill="#cbd5e1">说清要交付什么</text>
+    <text x="600" y="167" font-size="28" font-weight="700">计划</text><text x="600" y="201" font-size="18" fill="#cbd5e1">拆步骤、选工具</text>
+    <text x="890" y="282" font-size="28" font-weight="700">执行</text><text x="890" y="316" font-size="18" fill="#cbd5e1">读写文件、查资料</text>
+    <text x="720" y="492" font-size="28" font-weight="700">验证</text><text x="720" y="526" font-size="18" fill="#cbd5e1">测试真实结果</text>
+    <text x="370" y="472" font-size="28" font-weight="700">沉淀</text><text x="370" y="506" font-size="18" fill="#cbd5e1">形成文档与流程</text>
+  </g>
+  <text x="600" y="635" fill="#94a3b8" font-size="19" font-family="sans-serif" text-anchor="middle">好的 Agent 不只回答“怎么做”，还会把“做完了吗”交代清楚</text>
+</svg>

@@ -8,6 +8,7 @@ const contentDir = path.join(root, "content")
 const indexPath = path.join(contentDir, "index.md")
 
 const sectionNames = {
+  "ai-agent": "AI Agent",
   "hermes-agent": "Hermes Agent",
   projects: "项目",
   services: "服务",
