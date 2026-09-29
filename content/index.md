@@ -16,6 +16,7 @@ description: Cheyan 的技术、工具与家庭服务知识库目录。
 - [[services/immich|Immich 相册服务]]
 - [[services/opencode2api|OpenCode2API（未运行）]]
 - [[services/paperless|Paperless-ngx 文档管理服务]]
+- [[services/reverse-proxy-guide|反向代理使用指南：Tailscale Serve 与 Nginx]]：解释反向代理的请求流向，并记录 Tailscale Serve 的 tailnet 内 HTTPS 转发、常用命令、安全边界、Nginx 配置模板和故障排查。
 - [[services/syncthing|本机 Syncthing 文件同步服务]]
 - [[services/webmail|NAS 邮件客户端 Snappymail 部署与多邮箱配置]]
 - [[services/xserver-domain-email-setup|日本 Xserver 域名申请与企业邮箱搭建指南]]：参考 Xserver 官方文档，从域名申请、绑定、邮箱账号创建到 IMAP/SMTP、SPF、DKIM、DMARC 和安全检查的完整流程。
