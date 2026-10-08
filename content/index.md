@@ -45,3 +45,4 @@ description: Cheyan 的技术、工具与家庭服务知识库目录。
 - [[hermes-agent/使用指南|Hermes Agent 使用指南]]：Hermes Agent 的核心能力、常见任务方式和结果验收原则。
 - [[hermes-agent/隐私与公开知识库边界|Hermes Agent 隐私与公开知识库边界]]：面向公开网站的内容脱敏规则，以及 Hermes 记忆、技能和知识库的边界。
 - [[hermes-agent/index|Hermes Agent]]：Hermes Agent 的公开使用说明、工作约定与隐私边界。
+- [[hermes-agent/state-db-backup-design|Hermes state.db 备份与恢复设计要点]]：安全制作 Hermes SQLite 状态库快照、处理全文索引并验证恢复的通用方法。

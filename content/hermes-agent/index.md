@@ -14,6 +14,7 @@ Hermes Agent 是一个可以通过终端、桌面应用、网页界面和消息�
 - [[hermes-agent/使用指南]]：常用能力、任务类型和基本操作方式
 - [[hermes-agent/工作约定]]：人与 Agent 之间目前确认的协作规则
 - [[hermes-agent/隐私与公开知识库边界]]：哪些内容可以进入公开站点，哪些必须排除
+- [[hermes-agent/state-db-backup-design]]：Hermes SQLite 状态库快照、全文索引和恢复验收的通用原则
 
 ## 相关官方文档
 
