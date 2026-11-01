@@ -204,7 +204,42 @@ hyprctl -j activewindow
 
 测试记录应包含发行版、compositor 版本、会话类型、命令及去敏后的结果，并明确哪些项未测。不要把虚拟机、嵌套会话或协议模拟的结果写成物理/日常桌面会话实测。
 
-## 7. 选型建议
+## 7. 如果目标是不喜欢平铺的堆叠式桌面
+
+本文的适配筛选还要结合桌面交互偏好。**平铺优先**意味着新窗口通常自动占据布局中的区域；**堆叠/浮动优先**意味着窗口可以重叠、自由摆放，窗口管理器通常提供标题栏、最小化与传统窗口切换等行为。部分桌面两种模式兼有，以下描述的是项目默认定位或可配置工作流，不代表每个发行版会话的实测结果。
+
+按默认取向粗分：
+
+- **平铺优先：** Hyprland、Sway、niri、Miracle WM、river 配合常见的 Rivertile 布局生成器。Hyprland 可切换浮动窗口，Miracle 支持混合浮动，但默认核心仍是平铺布局；river 的实际布局由独立窗口管理器决定。
+- **堆叠/浮动优先：** Labwc、Wayfire、KWin/Plasma、Weston desktop-shell。Wayfire 可通过插件改变布局；KWin 也有可选自动平铺和脚本。COSMIC 支持自动平铺与堆叠混用，关闭当前工作区的自动平铺即可采用浮动工作流。
+
+| 候选 | 默认行为 | 能否改成堆叠 | 代价 |
+| --- | --- | --- | --- |
+| Hyprland | 平铺布局（dwindle/master），窗口也可单独浮动 | 可设置规则让新窗口浮动，例如 `windowrule = float, class:.*`（配置语法依版本） | 仍需处理浮动状态、工作区和窗口排列；缺少传统桌面惯例时要自行补齐 shell 体验 |
+| Sway | 平铺优先，支持单独浮动 | 可以把窗口设为 floating，组合配置也可让常见应用浮动 | 配置与管理习惯仍基于 i3 式容器/工作区；全局浮动不等于完整传统桌面 shell |
+| niri | 滚动列式平铺，支持浮动窗口 | 可逐窗浮动，但整体工作流仍围绕滚动列与动态工作区 | 要接受列式布局、动态工作区等交互模型；传统最小化和任务栏语义需确认 |
+| Miracle WM | 手动平铺为主，也支持混合浮动 | 可以混合浮动，最终体验取决于布局和配置 | IPC 兼容度与版本须逐项核验；不能只靠“支持浮动”推导出传统桌面完整性 |
+| river + Rivertile | Rivertile 默认生成主区/副区平铺布局 | river 可采用其他布局生成器或自定义窗口管理器；是否能纯堆叠取决于实现 | compositor 与窗口管理器分离，需要另选、编写并维护堆叠管理器 |
+| Labwc | Openbox 风格堆叠窗口 | 原生就是堆叠式；可配置浮动、层级与窗口规则 | 最大缺口是没有稳定的 Sway/i3 风格 IPC，Inua 所需状态和 dispatcher 需要扩展或桥接 |
+| Wayfire | 浮动/堆叠式 compositor | 原生符合；可启用平铺插件或调整插件组合 | IPC 能力受插件提供的方法影响，需要锁定插件并适配其状态/动作接口 |
+| KWin/Plasma | 传统堆叠窗口桌面；平铺功能可选 | 可以关闭自动平铺，不启用平铺脚本也可保持自由浮动 | 适配要依赖 KWin 专有脚本/接口，需维护版本兼容；桌面 shell 本身较完整 |
+| COSMIC | 自动平铺可选，支持窗口堆叠 | 可以关闭当前工作区的 `Tile current workspace` | 用户可在不同工作区切换模式；第三方 shell 可用的稳定窗口管理 IPC 仍需确认 |
+| Weston desktop-shell | 堆叠式参考桌面 shell | 原生是传统浮动窗口工作流 | layer-shell 不在其已知支持范围，且缺少 Inua 所需完整窗口管理 IPC，因此不满足整体依赖 |
+
+“默认堆叠 + 良好 IPC + layer-shell”同时具备的候选较少，原因是生态分工不同：传统堆叠 compositor 往往把工作区和窗口状态留给桌面自身组件，未必提供面向第三方 shell 的通用管理 IPC；平铺窗口管理器则常有成熟 IPC，但默认交互正是平铺。layer-shell 又只负责 shell 表面角色，不会补出窗口管理 API。就这一组合看，**Wayfire 与 KWin/Plasma 是较现实的两个方向**：Wayfire 有可订阅的插件 IPC，KWin 有桌面专属脚本接口和完整桌面生态；两者都要以目标版本逐项验证。Labwc 保留了理想的堆叠风格，却卡在缺少稳定管理 IPC，得先解决接口层。
+
+Hyprland 本身没有一个名为 `floating` 的全局 layout；它的 dwindle/master 等布局负责平铺，floating 是窗口状态。可以通过 `windowrule = float, class:.*` 一类规则让匹配窗口以浮动状态打开，但这不是传统堆叠窗口管理器的等价实现。**行为差异/需确认：** 用户可能还期待最小化并从任务栏恢复、每窗标题栏/系统菜单、传统虚拟桌面切换和持久窗口几何等惯例；这些功能不应仅凭“窗口可浮动”就视为具备，需在目标配置和 shell 中逐项核验。该判断是功能模型对照，不是本机桌面实测。
+
+### 按堆叠偏好的建议顺序
+
+1. **Wayfire：** 最值得先做 Inua 原型。它符合浮动桌面取向，也有 IPC 机制；先盘点插件，再验证窗口/工作区枚举、事件、移动/聚焦、快捷键和捕获。
+2. **KWin/Plasma：** 若希望传统完整桌面组件、面板、任务栏、虚拟桌面和系统设置，优先评估 Plasma 会话，并把 Inua 作为额外 shell 或部分组件。若坚持 Inua 管理所有窗口，则需开发 KWin 桥接。
+3. **Labwc：** 若 Openbox 风格是硬性偏好，可继续作为目标，但前提是接受维护 Labwc 扩展/分支或管理代理；在稳定 IPC 到位前，Inua 不能实现完整窗口管理功能。Debian trixie 的 0.8.3 尤其要实会话核验 layer-shell。
+4. **COSMIC：** 关闭自动平铺后交互上更接近堆叠；先确认公开 IPC 是否覆盖 shell 所需控制和状态，再决定是否投入桥接。
+5. **Hyprland：** 只有在接受规则化浮动和行为差异时才考虑。全局窗口浮动规则能避免自动平铺，但不能自动提供最小化、任务栏、标题栏或传统虚拟桌面惯例。
+6. **Sway、niri、Miracle WM、river+Rivertile：** 对明确排斥平铺的用户不作为首选；即使能让部分窗口浮动或换布局，也要额外改变默认交互并确认传统桌面惯例。
+
+## 8. 选型建议
 
 - **希望最小改动并保留现有行为：** 使用 Hyprland。Inua 当前 IPC、dispatcher 和 overview 捕获已有专用实现。
 - **希望采用成熟的平铺桌面和广泛 IPC 生态：** 优先评估 Sway。查询、事件和命令接口文档完整，但捕获与 Inua UI 语义仍需适配。
@@ -217,7 +252,7 @@ hyprctl -j activewindow
 
 选型前建议做一个最小适配原型：启动一个顶栏和 launcher，读取窗口、工作区和焦点，订阅一次状态变化，聚焦/移动一个测试窗口，并显示一张捕获预览。任何关键能力缺失都应明确记录，再决定删减功能、增加桥接或更换 compositor。
 
-## 8. 参考资料
+## 9. 参考资料
 
 1. [wlr-layer-shell 协议与 compositor 支持表（Wayland Explorer）](https://wayland.app/protocols/wlr-layer-shell-unstable-v1)
 2. [wlr-foreign-toplevel-management 协议与支持表（Wayland Explorer）](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1)
@@ -229,5 +264,10 @@ hyprctl -j activewindow
 8. [Labwc Sway 兼容 IPC 提案 PR #3519](https://github.com/labwc/labwc/pull/3519)
 9. [river-window-management-v1 协议](https://wayland.app/protocols/river-window-management-v1)；[river 项目说明](https://codeberg.org/river/river)
 10. [第三方 compositor 协议兼容性矩阵（交叉参考）](https://github.com/sjourdois/wlr-utils/blob/c3d976f6e8f764a1cde4dcd48270a2d893fc0102/COMPATIBILITY.md)
+11. [Hyprland Master Layout 文档](https://wiki.hypr.land/Configuring/Layouts/Master-Layout/)；[Dwindle Layout 文档](https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/)
+12. [niri 项目与工作流说明](https://github.com/niri-wm/niri)；[Miracle WM 项目说明](https://miracle-wm.org/)
+13. [COSMIC 自动平铺与堆叠说明](https://system76.com/support/pop-basics/)
+14. [Weston 配置手册](https://manpages.debian.org/trixie/weston/weston.ini.5.en.html)
+15. [Rivertile 手册](https://man.archlinux.org/man/rivertile.1.en)；[Wayfire 项目简介](https://wayfire.org/2019/01/13/Introduction-to-Wayfire.html)
 
 第三方兼容性矩阵和 Wayland Explorer 支持表适合发现候选，不应当代替目标发行版实测。涉及版本、协议发布和功能完整度的决定，应回到相应项目文档及实际运行会话复核。
