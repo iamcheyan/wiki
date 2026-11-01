@@ -91,6 +91,8 @@ Wayland Explorer 查询时列出 COSMIC 对以下协议的支持记录，表中 
 
 COSMIC 协议仓库包含以下不稳定协议 XML。版本号是协议接口版本，不是 COSMIC Epoch 版本。[5]
 
+这些 XML 的版本号可直接从仓库协议接口声明核验：workspace v1 与 v2 分属两个 XML；toplevel-info 为 v3；toplevel-management 与 image-capture-source 各为 v1。协议更新可能在不改变桌面 Epoch 主版本表达的情况下进行，因此客户端应按 registry 公布版本协商，不能只根据桌面 About 页面版本做硬编码判断。[5]
+
 | 协议 | XML 接口版本 | 主要用途 |
 | --- | --- | --- |
 | `cosmic-toplevel-info-unstable-v1` | 3 | 在 `ext-foreign-toplevel-list` 基础上提供窗口列表与额外属性，例如 title、app_id、状态和动作信息 |
@@ -171,7 +173,20 @@ Wayfire 和 Labwc 的边界沿用既有 Inua 评估：Wayfire 插件 IPC 能提�
 
 若“可安装”接受经过审查的第三方 Debian 13 apt 源，且愿意为 cosmic-comp 版本锁定并维护 unstable 协议适配，COSMIC 值得做原型；原型首先要验证 globals 授权、窗口/工作区事件、窗口移工作区、浮动几何、逐窗帧捕获及沙箱策略。若硬性要求是 Debian 官方仓库可装、通用且完整的窗口/工作区控制 IPC、任意浮动窗口几何和可靠逐窗预览，当前答案是**不满足**，卡在发行版官方包与 compositor 管理接口两层。
 
-后续条件是：Debian 官方提供并维护 COSMIC 包，或用户接受可信第三方源；COSMIC 上游公开稳定的 shell 管理授权与接口，补齐浮动几何/绑定查询或由 Inua 提供受支持桥接；并在目标 COSMIC 版本完成真实会话捕获与控制验收。当前 Debian 13 trixie 本机没有运行 COSMIC，协议和交互行为均未实测。
+后续条件是：Debian 官方提供并维护 COSMIC 包，或用户接受可信第三方源；COSMIC 上游公开稳定的 shell 管理授权与接口，补齐浮动几何/绑定查询或由 Inua 提供受支持桥接；并在目标 COSMIC 版本完成真实会话捕获与控制验收。
+
+### 9.1 原型验收顺序
+
+为避免把协议枚举误当成完整功能，COSMIC 原型应按下面顺序推进，并为每一步记录 compositor 版本与返回结果：
+
+1. 在普通非沙箱进程中枚举 `wl_registry`，核对 layer-shell、session-lock、toplevel-info、toplevel-management、workspace 与 capture source globals 的存在及公布版本。
+2. 订阅窗口初始快照与后续事件，测试新建、标题变化、焦点切换、窗口关闭及输出热插拔；确认对象销毁与快照同步没有竞态。
+3. 在可恢复的测试窗口上尝试激活、关闭和移动工作区，区分请求被接受、状态实际改变和窗口最终呈现三种结果。
+4. 使用浮动测试窗口确认是否有任意几何控制；若只能执行预设状态动作，将该能力标记为缺失，不能由 UI 侧保存一份假窗口状态替代 compositor 状态。
+5. 用捕获协议请求单个窗口源，测量连续帧、被遮挡窗口、最小化窗口和受保护内容行为；并验证停止捕获后缓冲与协议对象释放。
+6. 在计划的 Flatpak/原生打包方式下重复协议枚举，确认 sandbox policy 与 compositor 授权没有隐藏所需 globals。
+
+验收应覆盖成功与失败路径：对未知或已销毁的窗口对象发请求时，compositor 应返回可处理错误且会话继续运行；不应只验证 happy path。若目标版本的协议 XML 与实现源码不同步，应以运行中的版本、生成协议和实际行为共同判定，不把 `master` 分支源码当成已发布版本承诺。当前 Debian 13 trixie 本机未运行 COSMIC，以上不是实测结果。
 
 ## 10. 参考资料
 
