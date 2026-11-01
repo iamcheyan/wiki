@@ -24,6 +24,7 @@ description: Cheyan 的技术、工具与家庭服务知识库目录。
 
 ## 工具
 
+- [[tools/cosmic-desktop-evaluation|COSMIC 桌面作为 Inua 目标环境的评估]]：核对 COSMIC Epoch 1.11、Debian 13 可用性、Wayland 协议、窗口管理接口与逐窗捕获，判断 Inua 接入条件。
 - [[tools/git-hooks自动生成文档目录|用 Git Hook 自动生成 Markdown 文档目录]]：通过 pre-commit 在提交前扫描文章、更新首页目录，并理解 Git 暂存区、提交钩子与 CI 兜底之间的关系。
 - [[tools/Magpie-模型网关使用指南|Magpie 模型网关使用指南]]：安全管理本机 AI 模型供应商、模型目录和 Agent 路由的实用手册。
 - [[tools/wayland-compositor-inua|满足 Inua 依赖的 Wayland compositor 对比]]：对比具备 layer-shell 与窗口管理接口的 Wayland compositor，说明 Inua 适配条件、复核方法和选型取舍。

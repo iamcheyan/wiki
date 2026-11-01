@@ -110,9 +110,7 @@ Labwc 面向轻量级、Openbox 风格工作流。其官方立场是实现 Wayla
 
 ### 5.7 COSMIC：先查明目标版本公开的管理接口
 
-Wayland Explorer 的协议快照列出 COSMIC layer-shell 支持。[1] 这说明 shell 表面可能有基础，但不能据此推断 COSMIC 提供与 Hyprland、Sway 等价的窗口/工作区查询和控制 API。桌面自身组件之间的私有接口也不一定适合作为第三方 shell 的稳定依赖。
-
-评估时先查目标 COSMIC 版本的官方开发文档与公开 IPC/DBus 接口，再用运行会话验证窗口枚举、事件、焦点、工作区移动、任意位置/尺寸、快捷键查询和锁屏集成。若只有桌面内部接口或功能覆盖不全，需做桥接并承担上游兼容风险。本文未在 COSMIC 会话中实测。
+COSMIC 的协议情况、Debian 包与窗口管理边界已单独核对，详见 [[tools/cosmic-desktop-evaluation|COSMIC 桌面作为 Inua 目标环境的评估]]。该评估区分官方仓库、第三方协议支持表和本机实测；当前 Debian 13 trixie 未运行 COSMIC 会话。
 
 ### 5.8 KWin（Plasma）：生态完整，桥接需要专门设计
 
