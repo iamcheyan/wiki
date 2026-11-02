@@ -1,5 +1,6 @@
 @use "./variables.scss" as *;
 @use "./reader-mode.scss";
+@use "../components/reader-tools.scss";
 
 // Cheyan 知识库的视觉层：克制、清晰，重点突出目录和正文。
 

@@ -1,4 +1,5 @@
 import { createHash } from "crypto"
+import { readerToolsScript } from "../../components/readerToolsScript"
 import { FullSlug, joinSegments } from "../../util/path"
 import { QuartzEmitterPlugin } from "../types"
 
@@ -279,6 +280,7 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
       const cfg = ctx.cfg.configuration
       // component specific scripts and styles
       const componentResources = getComponentResources(ctx)
+      componentResources.afterDOMLoaded.push(readerToolsScript)
       let googleFontsStyleSheet = ""
       if (cfg.theme.fontOrigin === "local") {
         // let the user do it themselves in css

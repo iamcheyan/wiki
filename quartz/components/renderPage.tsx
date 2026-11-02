@@ -7,7 +7,7 @@ import {
   JSResourceToScriptElement,
   StaticResources,
 } from "../util/resources"
-import { FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
+import { FullSlug, RelativeURL, joinSegments, normalizeHastElement, pathToRoot } from "../util/path"
 import { clone } from "../util/clone"
 import { Root, Element, ElementContent } from "hast"
 import { GlobalConfiguration } from "../cfg"
@@ -346,7 +346,20 @@ export function renderPage(
   const doc = (
     <html lang={lang} dir={direction}>
       <Head {...componentData} />
-      <body data-slug={slug} data-basepath={basePath}>
+      <body
+        data-slug={slug}
+        data-content-index={joinSegments(pathToRoot(slug), "static/contentIndex.json")}
+        data-basepath={basePath}
+      >
+        <div class="reader-tools" aria-label="阅读工具">
+          <button class="reader-tools__toggle" type="button" aria-pressed="false">
+            <span>阅读模式</span>
+          </button>
+          <button class="reader-tools__copy" type="button">
+            <span>复制全文 Markdown</span>
+          </button>
+          <span class="reader-tools__status" role="status" aria-live="polite"></span>
+        </div>
         {frame.css && <style dangerouslySetInnerHTML={{ __html: frame.css }} />}
         <div id="quartz-root" class="page" data-frame={frame.name}>
           <Body {...componentData}>

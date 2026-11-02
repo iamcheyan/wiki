@@ -10,6 +10,17 @@
   --highlight: #ece8dc;
 }
 
+:root[saved-theme="dark"][reader-mode="on"] {
+  --light: #20221f;
+  --lightgray: #393c36;
+  --dark: #ece8dc;
+  --darkgray: #d0cdc2;
+  --gray: #99988e;
+  --secondary: #9db59c;
+  --tertiary: #c69d77;
+  --highlight: #30332e;
+}
+
 :root[reader-mode="on"] body {
   background: var(--light);
 }
@@ -112,7 +123,10 @@
   border: 1px solid var(--lightgray);
   border-radius: 50%;
   background: var(--light);
-  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
 }
 
 :root[reader-mode="on"] .readermode:hover {
