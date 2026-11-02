@@ -351,12 +351,12 @@ export function renderPage(
         data-content-index={joinSegments(pathToRoot(slug), "static/contentIndex.json")}
         data-basepath={basePath}
       >
-        <div class="reader-tools" aria-label="阅读工具">
+        <div class="reader-tools" aria-label="読書補助">
           <button class="reader-tools__toggle" type="button" aria-pressed="false">
-            <span>阅读模式</span>
+            <span>読書モード</span>
           </button>
           <button class="reader-tools__copy" type="button">
-            <span>复制全文 Markdown</span>
+            <span>本文を Markdown でコピー</span>
           </button>
           <span class="reader-tools__status" role="status" aria-live="polite"></span>
         </div>
