@@ -2,7 +2,7 @@
 @use "./reader-mode.scss";
 @use "../components/reader-tools.scss";
 
-// Cheyan 知识库的视觉层：克制、清晰，重点突出目录和正文。
+// このナレッジベースのビジュアルテーマ：落ち着きのある配色で、目次と本文を読みやすくします。
 
 :root {
   --brand-gradient: linear-gradient(135deg, #245b8a 0%, #0f8b8d 100%);

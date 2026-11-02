@@ -30,20 +30,20 @@ export default {
       darkMode: "ダークモード",
     },
     readerMode: {
-      title: "リーダーモード",
+      title: "読書モード",
     },
     explorer: {
-      title: "エクスプローラー",
+      title: "記事一覧",
     },
     footer: {
-      createdWith: "作成",
+      createdWith: "このサイトについて",
     },
     graph: {
-      title: "グラフビュー",
+      title: "リンクグラフ",
     },
     recentNotes: {
       title: "最近の記事",
-      seeRemainingMore: ({ remaining }) => `さらに${remaining}件 →`,
+      seeRemainingMore: ({ remaining }) => `ほか${remaining}件を見る →`,
     },
     transcludes: {
       transcludeOf: ({ targetSlug }) => `${targetSlug}のまとめ`,
@@ -57,7 +57,7 @@ export default {
       title: "目次",
     },
     contentMeta: {
-      readingTime: ({ minutes }) => `${minutes} min read`,
+      readingTime: ({ minutes }) => `読了時間：約${minutes}分`,
     },
   },
   pages: {
@@ -66,18 +66,18 @@ export default {
       lastFewNotes: ({ count }) => `最新の${count}件`,
     },
     error: {
-      title: "Not Found",
+      title: "ページが見つかりません",
       notFound: "ページが存在しないか、非公開設定になっています。",
       home: "ホームページに戻る",
     },
     folderContent: {
       folder: "フォルダ",
-      itemsUnderFolder: ({ count }) => `${count}件のページ`,
+      itemsUnderFolder: ({ count }) => `${count}件の記事`,
     },
     tagContent: {
       tag: "タグ",
       tagIndex: "タグ一覧",
-      itemsUnderTag: ({ count }) => `${count}件のページ`,
+      itemsUnderTag: ({ count }) => `${count}件の記事`,
       showingFirst: ({ count }) => `のうち最初の${count}件を表示しています`,
       totalTags: ({ count }) => `全${count}個のタグを表示中`,
     },

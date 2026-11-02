@@ -10,9 +10,9 @@ const indexPath = path.join(contentDir, "index.md")
 const sectionNames = {
   "ai-agent": "AI Agent",
   "hermes-agent": "Hermes Agent",
-  projects: "项目",
-  services: "服务",
-  tools: "工具",
+  projects: "プロジェクト",
+  services: "サービス",
+  tools: "ツール",
 }
 
 function readFrontmatter(filePath) {
@@ -21,7 +21,7 @@ function readFrontmatter(filePath) {
   const values = {}
 
   for (const line of frontmatter?.[1]?.split("\n") ?? []) {
-    const match = line.match(/^(title|description):\s*(.*)$/)
+    const match = line.match(/^(title|description|date):\s*(.*)$/)
     if (!match) continue
     values[match[1]] = match[2].trim().replace(/^['"]|['"]$/g, "")
   }
@@ -42,16 +42,19 @@ function collectArticles(directory, relativeDirectory = "") {
 
       const metadata = readFrontmatter(absolutePath)
       const slug = relativePath.slice(0, -3).split(path.sep).join("/")
-      const section = relativeDirectory ? sectionNames[relativeDirectory] ?? relativeDirectory : "文章"
+      const section = relativeDirectory ? sectionNames[relativeDirectory] ?? relativeDirectory : "記事"
 
-      return [{ description: metadata.description, section, slug, title: metadata.title ?? relativePath }]
+      return [{ date: metadata.date ?? "", description: metadata.description, section, slug, title: metadata.title ?? relativePath }]
     })
 }
 
-const articles = collectArticles(contentDir).sort((a, b) => a.slug.localeCompare(b.slug))
+const articles = collectArticles(contentDir).sort((a, b) => {
+  const dateOrder = (b.date || "0000-00-00").localeCompare(a.date || "0000-00-00")
+  return dateOrder || a.slug.localeCompare(b.slug)
+})
 const grouped = Map.groupBy(articles, (article) => article.section)
 const sections = [...grouped.entries()]
-  .sort(([a], [b]) => a.localeCompare(b, "zh-CN"))
+  .sort(([a], [b]) => a.localeCompare(b, "ja"))
   .map(([section, sectionArticles]) => {
     const entries = sectionArticles
       .map(({ description, slug, title }) => `- [[${slug}|${title}]]${description ? `：${description}` : ""}`)
@@ -61,15 +64,15 @@ const sections = [...grouped.entries()]
   .join("\n\n")
 
 const output = `---
-title: Cheyan 知识库
-description: Cheyan 的技术、工具与家庭服务知识库目录。
+title: ナレッジベース
+description: 技術、ツール、サービスに関する記事一覧。
 ---
 
-# Cheyan 知识库
+# ナレッジベース
 
-这里记录技术实践、家庭服务、工具配置与日常运维。选择下面的文章开始阅读。
+技術の実践、ツールの設定、サービスの運用に関する記事をまとめています。
 
-<!-- 目录由 scripts/generate-index.mjs 自动生成，请勿手动编辑此标记之后的内容。 -->
+<!-- この下の一覧は scripts/generate-index.mjs が自動生成します。 -->
 
 ${sections}
 `

@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Cheyan Wiki
-  pageTitleSuffix: " · Cheyan Wiki"
+  pageTitle: ナレッジベース
+  pageTitleSuffix: " · ナレッジベース"
   enableSPA: true
   enablePopovers: true
   analytics:
     provider: plausible
-  locale: en-US
+  locale: ja-JP
   baseUrl: wiki.iamcheyan.com
   ignorePatterns:
     - private
@@ -16,8 +16,8 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Noto Sans SC
-      body: Noto Sans SC
+      header: Noto Sans JP
+      body: Noto Sans JP
       code: JetBrains Mono
     colors:
       lightMode:
@@ -179,12 +179,6 @@ plugins:
       position: left
       priority: 30
       group: toolbar
-  - source: "@quartz-community/reader-mode"
-    enabled: true
-    layout:
-      position: left
-      priority: 35
-      group: toolbar
   - source: "@quartz-community/breadcrumbs"
     enabled: true
     layout:
@@ -200,14 +194,7 @@ plugins:
       position: afterBody
       priority: 10
   - source: "@quartz-community/footer"
-    enabled: true
-    options:
-      links:
-        GitHub: https://github.com/iamcheyan/wiki
-        Home: /
-    layout:
-      position: footer
-      priority: 50
+    enabled: false
   - source: "@quartz-community/recent-notes"
     enabled: false
   - source: "@quartz-community/spacer"
