@@ -1,0 +1,149 @@
+// 专注阅读：收起导航，限制行宽，并用更舒适的中文排版承载长文。
+:root[reader-mode="on"] {
+  --light: #f7f5ef;
+  --lightgray: #e7e3d9;
+  --dark: #292820;
+  --darkgray: #4b4940;
+  --gray: #858174;
+  --secondary: #58745f;
+  --tertiary: #9a704b;
+  --highlight: #ece8dc;
+}
+
+:root[reader-mode="on"] body {
+  background: var(--light);
+}
+
+:root[reader-mode="on"] .page {
+  max-width: 100%;
+}
+
+:root[reader-mode="on"] .page > #quartz-body {
+  display: block;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
+}
+
+:root[reader-mode="on"] .page > #quartz-body .sidebar {
+  display: none;
+}
+
+:root[reader-mode="on"] .page > #quartz-body .page-header {
+  margin: 0;
+  padding: clamp(2.5rem, 8vh, 5.5rem) 0 1.5rem;
+  border-bottom: 1px solid var(--lightgray);
+}
+
+:root[reader-mode="on"] .page > #quartz-body .center,
+:root[reader-mode="on"] .page > #quartz-body footer {
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+}
+
+:root[reader-mode="on"] .page > #quartz-body .center > article {
+  padding: 2rem 0 4rem;
+  font-size: 1.08rem;
+  line-height: 1.95;
+}
+
+:root[reader-mode="on"] .page > #quartz-body .center > article > h1 {
+  margin: 0 0 1.5rem;
+  color: var(--dark);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 1.3;
+}
+
+:root[reader-mode="on"] .page > #quartz-body .center > article h2 {
+  margin-top: 2.8em;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--lightgray);
+  color: var(--dark);
+  font-size: 1.5rem;
+  letter-spacing: -0.025em;
+}
+
+:root[reader-mode="on"] .page > #quartz-body .center > article h3 {
+  margin-top: 2em;
+  color: var(--dark);
+  font-size: 1.2rem;
+}
+
+:root[reader-mode="on"] .page > #quartz-body .center > article p,
+:root[reader-mode="on"] .page > #quartz-body .center > article li {
+  line-height: 1.95;
+}
+
+:root[reader-mode="on"] .page > #quartz-body .center > article p {
+  margin: 1.2em 0;
+}
+
+:root[reader-mode="on"] .page > #quartz-body .center > article blockquote {
+  margin: 1.8rem 0;
+  padding: 0.2rem 1.25rem;
+  border-left: 3px solid var(--secondary);
+  background: color-mix(in srgb, var(--highlight) 55%, transparent);
+  color: var(--darkgray);
+}
+
+:root[reader-mode="on"] .page > #quartz-body .center > article pre {
+  padding: 1.25rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--light) 65%, var(--lightgray));
+  line-height: 1.65;
+}
+
+:root[reader-mode="on"] .page > #quartz-body .center > article img {
+  border-radius: 0.75rem;
+}
+
+:root[reader-mode="on"] .page > #quartz-body footer {
+  padding: 1.5rem 0 3rem;
+  border-top: 1px solid var(--lightgray);
+}
+
+:root[reader-mode="on"] .readermode {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 50%;
+  background: var(--light);
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+:root[reader-mode="on"] .readermode:hover {
+  border-color: var(--secondary);
+  background: var(--highlight);
+  transform: scale(1.05);
+}
+
+:root[reader-mode="on"] .readermode svg {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+:root[reader-mode="on"] .readermode svg:last-child {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  :root[reader-mode="on"] .page > #quartz-body {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+
+  :root[reader-mode="on"] .page > #quartz-body .center > article {
+    padding-top: 1.5rem;
+    font-size: 1.04rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[reader-mode="on"] .readermode {
+    transition: none;
+  }
+}
