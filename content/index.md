@@ -36,6 +36,7 @@ description: 技術、ツール、サービスに関する記事一覧。
 
 ## ツール
 
+- [[tools/wsl-neovim-split-search-troubleshooting|WSL 中 Neovim 分屏独立搜索无效排查]]：检查 WSL 实际加载的 Neovim 配置、Git 与子模块版本，并用最小复现区分配置未更新和运行时行为问题。
 - [[tools/git-hooks自动生成文档目录|用 Git Hook 自动生成 Markdown 文档目录]]：通过 pre-commit 在提交前扫描文章、更新首页目录，并理解 Git 暂存区、提交钩子与 CI 兜底之间的关系。
 - [[tools/cosmic-desktop-evaluation|COSMIC 桌面作为 Inua 目标环境的评估]]：核对 COSMIC Epoch 1.11、Debian 13 可用性、Wayland 协议、窗口管理接口与逐窗捕获，判断 Inua 接入条件。
 - [[tools/Magpie-模型网关使用指南|Magpie 模型网关使用指南]]：安全管理本机 AI 模型供应商、模型目录和 Agent 路由的实用手册。
