@@ -45,6 +45,7 @@ description: 技術、ツール、サービスに関する記事一覧。
 
 ## プロジェクト
 
+- [[projects/windows11-wsl-nvim-setup|Windows 11 + WSL Ubuntu 24.04 开发环境部署记录]]：记录 PVE 上 Windows 11 虚拟机、远程桌面接入、WSL 与 dotfiles/chezmoi/Neovim 配置同步的当前进度、已核实事实和后续资料需求。
 - [[projects/sambalite-nas-download|SambaLite：从 NAS 下载音乐到 FiiO JM21 TF 卡]]：记录 192.168.3.10 NAS、media 账号、NAS/Media/music 路径、FiiO JM21 TF 卡和 SambaLite 首次递归下载的完整配置与维护方法。
 - [[projects/index|个人项目]]：正在构思、验证或持续开发的个人项目。
 - [[projects/miyako|Miyako：原生 Android NAS 音乐播放器]]：将 NAS 音乐同步到 Android 本地音乐库，并基于成熟原生播放器继续开发。
