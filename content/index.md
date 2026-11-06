@@ -50,3 +50,4 @@ description: 技術、ツール、サービスに関する記事一覧。
 - [[projects/index|个人项目]]：正在构思、验证或持续开发的个人项目。
 - [[projects/miyako|Miyako：原生 Android NAS 音乐播放器]]：将 NAS 音乐同步到 Android 本地音乐库，并基于成熟原生播放器继续开发。
 - [[projects/miyako-sync-research|Miyako：Android NAS 同步底座调研]]：现成 Android SMB/NAS 同步项目的候选底座、技术路线和 Fork 评估。
+- [[projects/cindy-debian-host|Cindy 在 Debian 上的运行与凭据故障恢复]]：记录 Cindy 桌面端与 cindy-host 在 Debian 测试机上的运行方式，以及 2026-11-06 因 safeStorage 主密钥被重建导致的「模型无法选择、发消息没有反应」的排查、修复与长期防护。

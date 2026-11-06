@@ -15,6 +15,7 @@ tags:
 
 - [[projects/miyako|Miyako：原生 Android NAS 音乐播放器]]
 - [[projects/miyako-sync-research|Miyako：Android NAS 同步底座调研]]
+- [[projects/cindy-debian-host|Cindy 在 Debian 上的运行与凭据故障恢复]]：桌面端与后台运行时共用 profile 的部署方式，以及一次 safeStorage 主密钥被重建导致「模型选不了、发消息没反应」的排查、修复与防护。
 
 ## 项目笔记约定
 
